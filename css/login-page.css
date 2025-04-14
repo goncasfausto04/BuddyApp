@@ -1,119 +1,138 @@
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+/* ========== CSS Variables ========== */
+:root {
+  --background-dark: #121212;
+  --surface-dark: #1e1e1e;
+  --surface-medium: #2a2a2a;
+  --primary-color: #bb86fc;
+  --border-color: #333;
+  --text-primary: white;
+  --text-secondary: #bbb;
+}
 
+/* ========== Base Styles ========== */
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 0 1rem;
-    background: #121212;
-    font-family: 'Rubik', sans-serif;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 1rem;
+  background: var(--background-dark);
+  font-family: 'Rubik', sans-serif;
+  overflow: hidden;
 }
 
-.title {
-    font-family: 'Pacifico', cursive;
-    font-size: 3.5rem;
-    color: #bb86fc;
-    margin-bottom: 3rem;
-    text-shadow: 0 2px 4px rgba(187,134,252,0.3);
+/* ========== Title Styles ========== */
+.auth-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+  text-shadow: 0 2px 4px rgba(187, 134, 252, 0.3);
 }
 
-.container {
-    background: #1e1e1e;
-    border-radius: 16px;
-    padding: 2.5rem;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+/* ========== Auth Container ========== */
+.auth-container {
+  background: var(--surface-dark);
+  border-radius: 16px;
+  padding: 2.5rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
 }
 
-.tabs {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 2rem;
-    gap: 1rem;
+/* ========== Tabs Navigation ========== */
+.auth-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+  gap: 1rem;
 }
 
-.tab {
-    flex: 1;
-    text-align: center;
-    padding: 1rem;
-    cursor: pointer;
-    color: #bbb;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    font-size: 1.2rem;
+.auth-tab {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
-.tab.active {
-    color: #bb86fc;
-    background: rgba(187,134,252,0.1);
-    font-weight: 500;
+.auth-tab.active {
+  color: var(--primary-color);
+  background: rgba(187, 134, 252, 0.1);
 }
 
-form {
-    display: none;
-    flex-direction: column;
-    gap: 1.5rem;
+/* ========== Form Styles ========== */
+.auth-form {
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-form.active {
-    display: flex;
-    opacity: 1;
-    transition: opacity 0.3s ease;
+.auth-form.active {
+  display: flex;
+  opacity: 1;
 }
 
-input {
-    background: #2a2a2a;
-    border: 1px solid #333;
-    padding: 1.2rem;
-    border-radius: 8px;
-    color: white;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
+.form-input {
+   width: calc(100% - 2rem);
+  background: var(--surface-medium);
+  border: 1px solid var(--border-color);
+  padding: 1.2rem;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
 }
 
-input:focus {
-    outline: none;
-    border-color: #bb86fc;
-    box-shadow: 0 0 0 3px rgba(187,134,252,0.2);
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(187, 134, 252, 0.2);
 }
 
-button {
-    background: #bb86fc;
-    color: #121212;
-    border: none;
-    padding: 1.2rem;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.submit-btn {
+  width: 100%;
+  background: var(--primary-color);
+  color: var(--background-dark);
+  border: none;
+  padding: 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background: #9e6dfc;
+.submit-btn:hover {
+  background: #9e6dfc;
 }
 
+/* ========== Responsive Design ========== */
 @media (max-width: 600px) {
-    .title {
-        font-size: 2.5rem;
-    }
-    
-    .container {
-        padding: 1.5rem;
-    }
-    
-    input, button {
-        padding: 1rem;
-        font-size: 1rem;
-    }
-    
-    .tab {
-        font-size: 1rem;
-        padding: 0.8rem;
-    }
+  .auth-title {
+    font-size: 2.5rem;
+  }
+
+  .auth-container {
+    padding: 1.5rem;
+  }
+
+  .form-input,
+  .submit-btn {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .auth-tab {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
 }

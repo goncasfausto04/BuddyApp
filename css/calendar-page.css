@@ -1,9 +1,10 @@
-/* Calendar Styles */
+/* ========== Calendar Styles ========== */
 .calendar-container {
   padding: 2rem 1.5rem;
   margin-top: 70px;
   height: calc(100vh - 120px);
   overflow-y: auto;
+  background: var(--background-dark);
 }
 
 .calendar-header {
@@ -16,15 +17,15 @@
 
 .month-year {
   font-size: 2rem;
-  color: #bb86fc;
+  color: var(--primary-color);
   margin: 0 1rem;
   font-weight: 500;
 }
 
 .nav-button {
-  background: #2a2a2a;
+  background: var(--surface-medium);
   border: none;
-  color: #bb86fc;
+  color: var(--primary-color);
   font-size: 2.5rem;
   width: 40px;
   height: 40px;
@@ -34,15 +35,15 @@
 }
 
 .nav-button:hover {
-  background: #bb86fc;
-  color: #121212;
+  background: var(--primary-color);
+  color: var(--background-dark);
 }
 
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
-  background: #2a2a2a;
+  background: var(--surface-medium);
   padding: 10px;
   border-radius: 12px;
 }
@@ -51,7 +52,7 @@
   text-align: center;
   padding: 1rem;
   font-size: 1.4rem;
-  color: #bb86fc;
+  color: var(--primary-color);
   font-weight: 500;
 }
 
@@ -61,8 +62,8 @@
 
 .day {
   aspect-ratio: 1;
-  background: #1e1e1e;
-  color: white;
+  background: var(--surface-dark);
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,7 +75,7 @@
 }
 
 .day:hover {
-  background: #2a2a2a;
+  background: var(--surface-medium);
   transform: scale(1.05);
   z-index: 1;
 }
@@ -84,8 +85,8 @@
 }
 
 .today {
-  background: #bb86fc;
-  color: #121212;
+  background: var(--primary-color);
+  color: var(--background-dark);
   font-weight: bold;
 }
 
@@ -97,79 +98,69 @@
   margin-top: 4px;
 }
 
-/* Weekly Tasks Styles */
+/* ========== Weekly Tasks ========== */
 .weekly-tasks {
-    padding: 2rem 1.5rem;
-    background: #1e1e1e;
-    margin: 2rem;
-    border-radius: 12px;
+  padding: 2rem 1.5rem;
+  background: var(--surface-dark);
+  margin: 2rem;
+  border-radius: 12px;
 }
 
 .tasks-title {
-    color: #bb86fc;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    font-family: 'Pacifico', cursive;
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Pacifico', cursive;
 }
 
 .task-container {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .task-box {
-    background: #2a2a2a;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid #bb86fc;
+  background: var(--surface-medium);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
 }
 
 .task-box.urgent {
-    border-left-color: #ff5252;
-    background: #2a1a1a;
+  border-left-color: #ff5252;
+  background: #2a1a1a;
 }
 
 .task-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .task-category {
-    font-size: 1.2rem;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
+  font-size: 1.2rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
 }
 
 .task-category.study { background: #3700b3; color: white; }
 .task-category.personal { background: #018786; color: white; }
 .task-category.project { background: #03dac6; color: #121212; }
-.task-category.revision { background: #bb86fc; color: #121212; }
+.task-category.revision { background: var(--primary-color); color: #121212; }
 
 .task-time {
-    font-size: 1.2rem;
-    color: #888;
+  font-size: 1.2rem;
+  color: #888;
 }
 
 .task-text {
-    margin: 0;
-    font-size: 1.4rem;
-    color: white;
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--text-primary);
 }
 
-@media (max-width: 480px) {
-    .weekly-tasks {
-        margin: 1rem;
-        padding: 1.5rem;
-    }
-    
-    .tasks-title {
-        font-size: 1.8rem;
-    }
-}
-
+/* ========== Media Queries ========== */
 @media (max-width: 480px) {
   .calendar-container {
     padding: 1rem;
@@ -192,5 +183,14 @@
 
   .day {
     font-size: 1.2rem;
+  }
+
+  .weekly-tasks {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .tasks-title {
+    font-size: 1.8rem;
   }
 }

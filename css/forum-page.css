@@ -1,15 +1,17 @@
-/* Forum Styles */
+/* ========== Forum Styles ========== */
 .forum-container {
   margin-top: 70px;
   padding: 2rem 1.5rem;
+  height: calc(100vh - 120px);
+  overflow-y: auto;
 }
 
 .post-container {
-  background: #2a2a2a;
+  background: var(--surface-medium);
   border-radius: 12px;
   margin-bottom: 2rem;
   padding: 1.5rem;
-  border-left: 4px solid #bb86fc;
+  border-left: 4px solid var(--primary-color);
 }
 
 .post-header {
@@ -28,24 +30,26 @@
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
+  flex-shrink: 0;
 }
 
 .post-content {
   font-size: 1.4rem;
   line-height: 1.5;
   margin-bottom: 1.5rem;
+  color: var(--text-primary);
 }
 
 .comments-section {
   margin-top: 1.5rem;
   padding-left: 2rem;
-  border-left: 2px solid #333;
+  border-left: 2px solid var(--border-color);
 }
 
 .comment {
   margin: 1rem 0;
   padding: 1rem;
-  background: #1e1e1e;
+  background: var(--surface-dark);
   border-radius: 8px;
 }
 
@@ -58,52 +62,60 @@
 .reply-input {
   flex: 1;
   padding: 1rem;
-  background: #1e1e1e;
+  background: var(--surface-dark);
   border: none;
   border-radius: 8px;
-  color: white;
+  color: var(--text-primary);
+  font-size: 1.4rem;
 }
 
 .reply-button {
-  background: #bb86fc;
-  color: #121212;
+  background: var(--primary-color);
+  color: var(--background-dark);
   border: none;
   padding: 0 1.5rem;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.reply-button:hover {
+  opacity: 0.9;
 }
 
 .new-post-button {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: #bb86fc;
-  color: #121212;
+  background: var(--primary-color);
+  color: var(--background-dark);
   padding: 1.5rem;
   border-radius: 50%;
   font-size: 2rem;
   box-shadow: 0 4px 15px rgba(187, 134, 252, 0.3);
   text-decoration: none;
+  z-index: 100;
 }
 
 .timestamp {
-  color: #888;
+  color: var(--text-secondary);
   font-size: 1.2rem;
 }
 
-/* Connection Modal Styles */
+/* ========== Connection Modal ========== */
 .connection-modal {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #2a2a2a;
+  background: var(--surface-medium);
   padding: 2rem;
   border-radius: 12px;
   z-index: 1001;
   display: none;
-  width: 300px;
+  width: 90%;
+  max-width: 300px;
   text-align: center;
 }
 
@@ -112,8 +124,8 @@
 }
 
 .anon-name {
+  color: var(--primary-color);
   cursor: pointer;
-  color: #bb86fc;
   transition: opacity 0.2s;
 }
 
@@ -122,19 +134,20 @@
 }
 
 .connect-btn {
-  background: #bb86fc;
-  color: #121212;
+  background: var(--primary-color);
+  color: var(--background-dark);
   border: none;
   padding: 0.8rem 2rem;
   border-radius: 8px;
   margin: 1rem 0;
   cursor: pointer;
   font-weight: 500;
+  width: 100%;
 }
 
 .disclaimer {
   font-size: 1rem;
-  color: #888;
+  color: var(--text-secondary);
   line-height: 1.4;
 }
 
@@ -152,4 +165,30 @@
 
 .modal-overlay.active {
   display: block;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 480px) {
+  .forum-container {
+    padding: 1rem;
+  }
+  
+  .post-container {
+    padding: 1rem;
+  }
+  
+  .comments-section {
+    padding-left: 1rem;
+  }
+  
+  .reply-input {
+    font-size: 1.2rem;
+  }
+  
+  .new-post-button {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 1.2rem;
+    font-size: 1.8rem;
+  }
 }

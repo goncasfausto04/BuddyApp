@@ -1,71 +1,86 @@
- /* Add these styles to your CSS */
-      .games-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-        padding: 0 2rem 2rem 2rem;
-      }
+/* ========== Games Page Styles ========== */
+.games-container {
+  margin-top: 70px;
+  padding: 2rem 1.5rem;
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+}
 
-      .games-container {
-        margin-top: 70px; /* Same as other pages */
-        padding: 20px 0;
-      }
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 0 1.5rem 2rem;
+}
 
-      .game-card {
-        background: #2a2a2a;
-        border-radius: 15px;
-        padding: 1.5rem;
-        text-align: center;
-        transition: transform 0.3s ease;
-        border: 2px solid #333;
-      }
+.game-card {
+  background: var(--surface-medium);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+}
 
-      .game-card:hover {
-        transform: translateY(-5px);
-        border-color: #bb86fc;
-      }
+.game-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 15px rgba(187, 134, 252, 0.2);
+}
 
-      .game-icon {
-        font-size: 4rem;
-        margin-bottom: 1rem;
-      }
+.game-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
 
-      .game-title {
-        font-size: 1.6rem;
-        color: #bb86fc;
-        margin-bottom: 0.5rem;
-      }
+.game-title {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
 
-      .game-desc {
-        font-size: 1.2rem;
-        color: #888;
-      }
+.game-desc {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
 
-      /* Difficulty Tags */
-      .difficulty {
-        display: inline-block;
-        padding: 0.3rem 1rem;
-        border-radius: 15px;
-        font-size: 1.1rem;
-        margin-top: 1rem;
-      }
+/* Difficulty Indicators */
+.difficulty {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
 
-      .easy {
-        background: #03dac6;
-        color: #121212;
-      }
-      .medium {
-        background: #bb86fc;
-        color: #121212;
-      }
-      .hard {
-        background: #ff5252;
-        color: white;
-      }
+.easy { background: #03dac6; color: var(--background-dark); }
+.medium { background: var(--primary-color); color: var(--background-dark); }
+.hard { background: #ff5252; color: white; }
 
-      @media (max-width: 480px) {
-        .games-grid {
-          grid-template-columns: 1fr;
-          padding: 1rem;
-        }
-      }
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem 2rem;
+  }
+  
+  .game-card {
+    padding: 1.2rem;
+  }
+  
+  .game-icon {
+    font-size: 3.5rem;
+  }
+  
+  .game-title {
+    font-size: 1.4rem;
+  }
+  
+  .game-desc {
+    font-size: 1.1rem;
+  }
+}
