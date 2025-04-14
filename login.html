@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddy - Login</title>
+    <link rel="stylesheet" href="css/login-page.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="title">HI BUDDY</div>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="showForm('login')">Login</div>
+            <div class="tab" onclick="showForm('register')">Register</div>
+        </div>
+
+        <form id="login" class="active" action="index.html">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Continue</button>
+        </form>
+
+        <form id="register">
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Create Account</button>
+        </form>
+    </div>
+
+    <script>
+        function showForm(type) {
+            document.querySelectorAll('form').forEach(form => {
+                form.classList.remove('active');
+                form.style.opacity = 0;
+            });
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            
+            const activeForm = document.getElementById(type);
+            activeForm.classList.add('active');
+            setTimeout(() => activeForm.style.opacity = 1, 50);
+            
+            document.querySelector(`.tab[onclick="showForm('${type}')"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!-- Changes in HTML -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buddy Chat</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/index-page.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      <div class="app-title">Buddy</div>
+    </header>
+
+    <!-- Overlay and menu moved to top-level -->
+    <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+    <div class="side-menu" id="sideMenu">
+      <ul>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Games</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </div>
+
+    <!-- Single chat container -->
+    <main class="chat-container">
+      <div class="chat-box" id="chatBox">
+        <!-- Chat messages go here -->
+      </div>
+
+      <form class="chat-input-area" onsubmit="sendMessage(event)">
+        <input
+          type="text"
+          id="messageInput"
+          placeholder="Type a message..."
+          required
+        />
+        <button type="submit" class="send-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 12h16M12 4l8 8-8 8" />
+          </svg>
+        </button>
+      </form>
+    </main>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("sideMenu");
+        const overlay = document.getElementById("overlay");
+        menu.classList.toggle("open");
+        overlay.classList.toggle("active");
+      }
+
+      function closeMenu() {
+        document.getElementById("sideMenu").classList.remove("open");
+        document.getElementById("overlay").classList.remove("active");
+      }
+    </script>
+  </body>
+</html>
