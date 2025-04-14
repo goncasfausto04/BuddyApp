@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buddy Games</title>
+    <link rel="stylesheet" href="css/index-page.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/games-page.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      <div class="app-title">
+        <a href="index.html" style="text-decoration: none; color: inherit"
+          >Buddy</a
+        >
+      </div>
+    </header>
+
+    <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+    <div class="side-menu" id="sideMenu">
+      <ul>
+        <li><a href="index.html">🐘 Chat</a></li>
+        <li><a href="calendar.html">📅 Calendar</a></li>
+        <li><a href="games.html">🎮 Games</a></li>
+        <li><a href="forum.html">💬 Forum</a></li>
+        <li><a href="settings.html">⚙️ Settings</a></li>
+        <li class="bottom"><a href="buddy.html">🎨 Your Buddy</a></li>
+      </ul>
+    </div>
+
+    <main class="games-container">
+      <div class="games-grid">
+        <!-- Memory Game -->
+        <div class="game-card">
+          <div class="game-icon">🧠</div>
+          <h3 class="game-title">Memory Match</h3>
+          <p class="game-desc">Test your memory skills with matching pairs</p>
+          <div class="difficulty medium">Medium</div>
+        </div>
+
+        <!-- Trivia -->
+        <div class="game-card">
+          <div class="game-icon">❓</div>
+          <h3 class="game-title">Quick Trivia</h3>
+          <p class="game-desc">Daily general knowledge challenge</p>
+          <div class="difficulty easy">Easy</div>
+        </div>
+
+        <!-- Puzzle -->
+        <div class="game-card">
+          <div class="game-icon">🧩</div>
+          <h3 class="game-title">Daily Puzzle</h3>
+          <p class="game-desc">Solve today's logic puzzle</p>
+          <div class="difficulty hard">Hard</div>
+        </div>
+
+        <!-- Word Game -->
+        <div class="game-card">
+          <div class="game-icon">🔤</div>
+          <h3 class="game-title">Word Rush</h3>
+          <p class="game-desc">Create words against the clock</p>
+          <div class="difficulty medium">Medium</div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Reuse the same menu functions from index.html
+      function toggleMenu() {
+        const menu = document.getElementById("sideMenu");
+        const overlay = document.getElementById("overlay");
+        menu.classList.toggle("open");
+        overlay.classList.toggle("active");
+      }
+
+      function closeMenu() {
+        document.getElementById("sideMenu").classList.remove("open");
+        document.getElementById("overlay").classList.remove("active");
+      }
+    </script>
+  </body>
+</html>

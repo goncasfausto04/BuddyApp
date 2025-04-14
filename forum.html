@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddy Forum</title>
+    <link rel="stylesheet" href="css/index-page.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik:wght@400;500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/forum-page.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="app-title"><a href="index.html" style="text-decoration: none; color: inherit;">Buddy</a></div>
+    </header>
+
+    <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+    
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="index.html">🐘 Chat</a></li>
+            <li><a href="calendar.html">📅 Calendar</a></li>
+            <li><a href="games.html">🎮 Games</a></li>
+            <li><a href="forum.html">💬 Forum</a></li>
+            <li><a href="settings.html">⚙️ Settings</a></li>
+            <li class="bottom"><a href="buddy.html">🎨 Your Buddy</a></li>
+        </ul>
+    </div>
+
+    <main class="forum-container">
+        <!-- Sample Post 1 -->
+        <div class="post-container">
+            <div class="post-header">
+                <div class="anon-icon">👤</div>
+                <div>
+                    <div class="anon-name" onclick="showConnectionModal(event)">Anonymous Buddy</div>
+                    <div class="timestamp">2 hours ago</div>
+                </div>
+            </div>
+            <div class="post-content">
+                Anyone else feel like they're constantly playing catch-up with assignments? 📚 Just when I finish one paper, three more appear!
+            </div>
+            <div class="comments-section">
+                <div class="comment">
+                    <div class="post-header">
+                        <div class="anon-icon">👤</div>
+                        <div class="anon-name" onclick="showConnectionModal(event)">Anonymous Buddy</div>
+                    </div>
+                    <div class="post-content">
+                        Totally get you! Try breaking tasks into smaller chunks. It helps!
+                    </div>
+                </div>
+                
+                <!-- Reply Form -->
+                <form class="reply-form" onsubmit="addComment(event)">
+                    <input type="text" class="reply-input" placeholder="Write a response..." required>
+                    <button type="submit" class="reply-button">Post</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Sample Post 2 -->
+        <div class="post-container">
+            <div class="post-header">
+                <div class="anon-icon">👤</div>
+                <div>
+                    <div class="anon-name" onclick="showConnectionModal(event)">Anonymous Buddy</div>
+                    <div class="timestamp">5 hours ago</div>
+                </div>
+            </div>
+            <div class="post-content">
+                Late night study buddies unite! Who's up working right now? ☕🌙
+            </div>
+            <div class="comments-section">
+                <div class="comment">
+                    <div class="post-header">
+                        <div class="anon-icon">👤</div>
+                        <div class="anon-name" onclick="showConnectionModal(event)">Anonymous Buddy</div>
+                    </div>
+                    <div class="post-content">
+                        Present! Physics exam tomorrow 😅
+                    </div>
+                </div>
+                <form class="reply-form" onsubmit="addComment(event)">
+                    <input type="text" class="reply-input" placeholder="Write a response..." required>
+                    <button type="submit" class="reply-button">Post</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Connection Modal -->
+        <div class="modal-overlay" id="modalOverlay" onclick="closeConnectionModal()"></div>
+        <div class="connection-modal" id="connectionModal">
+            <div class="anon-icon">👤</div>
+            <h3>Anonymous Buddy</h3>
+            <button class="connect-btn" onclick="sendConnectionRequest()">Connect</button>
+            <p class="disclaimer">
+                You'll only be able to message this user if they accept your connection request.
+                All communications remain anonymous.
+            </p>
+        </div>
+
+        <!-- Floating New Post Button -->
+        <a href="#" class="new-post-button">+</a>
+    </main>
+
+    <script>
+        // Connection System
+        function showConnectionModal(event) {
+            event.stopPropagation();
+            document.getElementById('connectionModal').classList.add('active');
+            document.getElementById('modalOverlay').classList.add('active');
+        }
+
+        function closeConnectionModal() {
+            document.getElementById('connectionModal').classList.remove('active');
+            document.getElementById('modalOverlay').classList.remove('active');
+        }
+
+        function sendConnectionRequest() {
+            closeConnectionModal();
+            alert('Connection request sent! You\'ll be notified if accepted.');
+        }
+
+        // Menu Functions
+        function toggleMenu() {
+            const menu = document.getElementById("sideMenu");
+            const overlay = document.getElementById("overlay");
+            menu.classList.toggle("open");
+            overlay.classList.toggle("active");
+        }
+
+        function closeMenu() {
+            document.getElementById("sideMenu").classList.remove("open");
+            document.getElementById("overlay").classList.remove("active");
+        }
+
+        // Comment System
+        function addComment(event) {
+            event.preventDefault();
+            const input = event.target.querySelector('.reply-input');
+            const commentText = input.value.trim();
+            
+            if(commentText) {
+                const commentDiv = document.createElement('div');
+                commentDiv.className = 'comment';
+                commentDiv.innerHTML = `
+                    <div class="post-header">
+                        <div class="anon-icon">👤</div>
+                        <div class="anon-name" onclick="showConnectionModal(event)">Anonymous Buddy</div>
+                    </div>
+                    <div class="post-content">${commentText}</div>
+                `;
+                
+                event.target.parentNode.insertBefore(commentDiv, event.target);
+                input.value = '';
+                
+                // Add click handler to new username
+                commentDiv.querySelector('.anon-name').onclick = showConnectionModal;
+            }
+        }
+    </script>
+</body>
+</html>
