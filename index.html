@@ -28,20 +28,25 @@
         <li><a href="calendar.html">📅 Calendar</a></li>
         <li><a href="games.html">🎮 Games</a></li>
         <li><a href="forum.html">💬 Forum</a></li>
-        <li><a href="settings.html">⚙️ Settings</a></li>
         <li class="bottom"><a href="buddy.html">🎨 Your Buddy</a></li>
+        <li><a href="settings.html">⚙️ Settings</a></li>
       </ul>
     </div>
+
     <main class="chat-container">
       <div class="chat-box" id="chatBox">
-        <!-- Sample Chat Messages -->
+        <!-- Bot Message -->
         <div class="message bot-message">
+          <div class="message-pfp">
+            <img src="buddyface.png" alt="Buddy" />
+          </div>
           <div class="message-content">
-            Hi! I'm Buddy, your AI Companion . How can I help you today?
+            Hi! I'm Buddy, your AI Companion. How can I help you today?
           </div>
           <div class="message-time">10:00 AM</div>
         </div>
 
+        <!-- User Message -->
         <div class="message user-message">
           <div class="message-content">
             I have been feeling a bit overwhelmed with my studies lately. Can
@@ -50,7 +55,11 @@
           <div class="message-time">10:01 AM</div>
         </div>
 
+        <!-- Bot Message -->
         <div class="message bot-message">
+          <div class="message-pfp">
+            <img src="buddyface.png" alt="Buddy" />
+          </div>
           <div class="message-content">
             Of course! It's normal to feel overwhelmed sometimes. Let's break it
             down together. What subjects are you struggling with?
@@ -103,10 +112,8 @@
         const message = input.value.trim();
 
         if (message) {
-          // Add user message
           addMessage(message, "user");
 
-          // Simulate AI response after 1 second
           setTimeout(() => {
             const response = generateAIResponse(message);
             addMessage(response, "bot");
@@ -125,17 +132,27 @@
 
         const messageDiv = document.createElement("div");
         messageDiv.className = `message ${sender}-message`;
-        messageDiv.innerHTML = `
-                <div class="message-content">${text}</div>
-                <div class="message-time">${time}</div>
-            `;
+
+        if (sender === "bot") {
+          messageDiv.innerHTML = `
+                    <div class="message-pfp">
+                        <img src="buddyface.png" alt="Buddy">
+                    </div>
+                    <div class="message-content">${text}</div>
+                    <div class="message-time">${time}</div>
+                `;
+        } else {
+          messageDiv.innerHTML = `
+                    <div class="message-content">${text}</div>
+                    <div class="message-time">${time}</div>
+                `;
+        }
 
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
       }
 
       function generateAIResponse(userMessage) {
-        // Simple mock AI responses
         const responses = {
           hello: "Hello again!",
           "thank you": "You're welcome! Let me know if you need anything else.",

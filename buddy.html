@@ -1,122 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Customize Your Buddy</title>
-    <link rel="stylesheet" href="css/index-page.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/buddy-page.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/index-page.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/buddy-page.css" />
+  </head>
+  <body>
     <header class="app-header">
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <div class="app-title"><a href="index.html" style="text-decoration: none; color: inherit;">Buddy</a></div>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      <div class="app-title">
+        <a href="index.html" style="text-decoration: none; color: inherit"
+          >Buddy</a
+        >
+      </div>
     </header>
 
     <div class="overlay" id="overlay" onclick="closeMenu()"></div>
-    
+
     <div class="side-menu" id="sideMenu">
-        <ul>
-            <li><a href="index.html">🐘 Chat</a></li>
-            <li><a href="calendar.html">📅 Calendar</a></li>
-            <li><a href="games.html">🎮 Games</a></li>
-            <li><a href="forum.html">💬 Forum</a></li>
-            <li><a href="settings.html">⚙️ Settings</a></li>
-            <li class="bottom"><a href="buddy.html">🎨 Your Buddy</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.html">🐘 Chat</a></li>
+        <li><a href="calendar.html">📅 Calendar</a></li>
+        <li><a href="games.html">🎮 Games</a></li>
+        <li><a href="forum.html">💬 Forum</a></li>
+        <li class="bottom"><a href="buddy.html">🎨 Your Buddy</a></li>
+        <li><a href="settings.html">⚙️ Settings</a></li>
+      </ul>
     </div>
 
     <main class="customization-container">
-        <div class="buddy-preview">
-            <div class="buddy-image">
-                <img src="buddy.png" alt="Your Buddy">
-            </div>
+      <div class="buddy-preview">
+        <div class="buddy-image">
+          <img src="buddy.png" alt="Your Buddy" />
         </div>
+      </div>
 
-        <div class="customization-categories">
-            <div class="category-tab active">Colors</div>
-            <div class="category-tab">Hats</div>
-            <div class="category-tab">Shirts</div>
-            <div class="category-tab">Pants</div>
-            <div class="category-tab">Shoes</div>
-            <div class="category-tab">Accessories</div>
-        </div>
+      <div class="customization-categories">
+        <div class="category-tab active">Colors</div>
+        <div class="category-tab">Hats</div>
+        <div class="category-tab">Shirts</div>
+        <div class="category-tab">Pants</div>
+        <div class="category-tab">Shoes</div>
+        <div class="category-tab">Accessories</div>
+      </div>
 
-        <!-- Color Customization -->
-        <div class="customization-items">
-            <div class="custom-item selected">
-                <div class="color-option" style="background: #bb86fc;"></div>
-                Default Purple
-            </div>
-            <div class="custom-item">
-                <div class="color-option" style="background: #03dac6;"></div>
-                Mint Green
-            </div>
-            <div class="custom-item">
-                <div class="color-option" style="background: #ff5252;"></div>
-                Red Alert
-            </div>
-            <div class="custom-item">
-                <div class="color-option" style="background: #018786;"></div>
-                Ocean Blue
-            </div>
+      <!-- Color Customization -->
+      <div class="customization-items">
+        <div class="custom-item selected">
+          <div class="color-option" style="background: #bb86fc"></div>
+          Default Purple
         </div>
+        <div class="custom-item">
+          <div class="color-option" style="background: #03dac6"></div>
+          Mint Green
+        </div>
+        <div class="custom-item">
+          <div class="color-option" style="background: #ff5252"></div>
+          Red Alert
+        </div>
+        <div class="custom-item">
+          <div class="color-option" style="background: #018786"></div>
+          Ocean Blue
+        </div>
+      </div>
 
-        <!-- Hat Customization (hidden) -->
-        <div class="customization-items" style="display: none;">
-            <div class="custom-item">
-                <div class="item-preview">🎩</div>
-                Top Hat
-            </div>
-            <div class="custom-item">
-                <div class="item-preview">🧢</div>
-                Baseball Cap
-            </div>
-            <div class="custom-item">
-                <div class="item-preview">🎓</div>
-                Graduation Cap
-            </div>
-            <div class="custom-item">
-                <div class="item-preview">👑</div>
-                Crown
-            </div>
+      <!-- Hat Customization (hidden) -->
+      <div class="customization-items" style="display: none">
+        <div class="custom-item">
+          <div class="item-preview">🎩</div>
+          Top Hat
         </div>
+        <div class="custom-item">
+          <div class="item-preview">🧢</div>
+          Baseball Cap
+        </div>
+        <div class="custom-item">
+          <div class="item-preview">🎓</div>
+          Graduation Cap
+        </div>
+        <div class="custom-item">
+          <div class="item-preview">👑</div>
+          Crown
+        </div>
+      </div>
     </main>
 
     <script>
-        // Menu Functions (same as forum)
-        function toggleMenu() {
-            const menu = document.getElementById("sideMenu");
-            const overlay = document.getElementById("overlay");
-            menu.classList.toggle("open");
-            overlay.classList.toggle("active");
-        }
+      // Menu Functions (same as forum)
+      function toggleMenu() {
+        const menu = document.getElementById("sideMenu");
+        const overlay = document.getElementById("overlay");
+        menu.classList.toggle("open");
+        overlay.classList.toggle("active");
+      }
 
-        function closeMenu() {
-            document.getElementById("sideMenu").classList.remove("open");
-            document.getElementById("overlay").classList.remove("active");
-        }
+      function closeMenu() {
+        document.getElementById("sideMenu").classList.remove("open");
+        document.getElementById("overlay").classList.remove("active");
+      }
 
-        // Customization Logic
-        document.querySelectorAll('.category-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                
-                const categoryIndex = Array.from(this.parentElement.children).indexOf(this);
-                document.querySelectorAll('.customization-items').forEach((section, index) => {
-                    section.style.display = index === categoryIndex ? 'grid' : 'none';
-                });
+      // Customization Logic
+      document.querySelectorAll(".category-tab").forEach((tab) => {
+        tab.addEventListener("click", function () {
+          document
+            .querySelectorAll(".category-tab")
+            .forEach((t) => t.classList.remove("active"));
+          this.classList.add("active");
+
+          const categoryIndex = Array.from(this.parentElement.children).indexOf(
+            this
+          );
+          document
+            .querySelectorAll(".customization-items")
+            .forEach((section, index) => {
+              section.style.display = index === categoryIndex ? "grid" : "none";
             });
         });
+      });
 
-        document.querySelectorAll('.custom-item').forEach(item => {
-            item.addEventListener('click', function() {
-                this.parentElement.querySelectorAll('.custom-item').forEach(i => i.classList.remove('selected'));
-                this.classList.add('selected');
-            });
+      document.querySelectorAll(".custom-item").forEach((item) => {
+        item.addEventListener("click", function () {
+          this.parentElement
+            .querySelectorAll(".custom-item")
+            .forEach((i) => i.classList.remove("selected"));
+          this.classList.add("selected");
         });
+      });
     </script>
-</body>
+  </body>
 </html>
